@@ -19,4 +19,12 @@ docker run -d -p 8080:8080 -p 50000:50000 -v /var/run/docker.sock:/var/run/docke
 ```
 4.now go in to the browser and configure jenkins , create pipeline and copy paste the jenkinsfile
 
-5.make sure to enter the following things credentials :
+5.make sure to enter the following things credentials : 
+docker username
+docker password
+aws access key id 
+aws secret accesss id 
+
+6. please copy the scripts from this repository to the container 
+
+7. you can run the pipeline :D
