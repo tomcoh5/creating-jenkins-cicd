@@ -1,1 +1,6 @@
-hello
+# CICD Project 
+## in Jenkins
+###### for flask-web-app
+notes to take
+make sure you run jenkins inside docker 
+go to the Dockerfile i created here 
