@@ -1,0 +1,38 @@
+pipeline {
+    agent any
+    
+    environment {
+        name= 'web-app'
+        user = credentials('user-docker')
+        pass = credentials('pass-docker')
+        environment_name= 'web-app-env'
+        key_pair= 'elasticsearch'
+        region= 'eu-central-1'
+        AWS_ACCESS_KEY_ID = credentials('AWS_ACCESS_KEY_ID')
+        AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
+    }
+
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building.....'
+                sh ' sh /build.sh '
+            }
+        }
+        stage("Test") {
+            steps {
+                echo 'Testing....'
+                sh 'python3 /test.py'
+                sh 'sh /push.sh '
+            }
+        }
+        stage("Deploy"){
+            steps{
+                echo 'Deploying ....'
+                sh 'sh /var/jenkins_home/workspace/configure.sh'
+                sh 'sh /var/jenkins_home/workspace/deploy.sh'
+    
+                }
+            }    
+        }
+    }
