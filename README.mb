@@ -1,7 +1,0 @@
-# The largest heading
-## in Jenkins
-###### for flask-web-app
-notes to take
-make sure you run jenkins inside docker 
-go to the Dockerfile i created here 
-and -v /var/run/docker.sock:/var/run/docker.sock
